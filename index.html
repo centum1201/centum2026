@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>센텀직업전문학교 | 수료생 포트폴리오</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#0A1424;
+    --navy:#0F2038;
+    --navy-mid:#16304F;
+    --blue-accent:#1E4976;
+    --orange:#FF7A2E;
+    --orange-light:#FFA35C;
+    --text-hi:#F2F5F9;
+    --text-mid:#B7C2D3;
+    --text-low:#7C8AA3;
+    --line:rgba(242,245,249,0.09);
+    --line-strong:rgba(242,245,249,0.16);
+    --radius:14px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(1200px 600px at 15% -10%, rgba(30,73,118,0.35), transparent 60%),
+      radial-gradient(900px 500px at 100% 0%, rgba(255,122,46,0.08), transparent 55%),
+      var(--navy-deep);
+    color:var(--text-hi);
+    font-family:'Pretendard Variable','Pretendard',-apple-system,sans-serif;
+    line-height:1.5;
+    min-height:100vh;
+  }
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;}
+  a:focus-visible, button:focus-visible, input:focus-visible{
+    outline:2px solid var(--orange); outline-offset:3px; border-radius:4px;
+  }
+
+  header{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(10,20,36,0.86);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-wrap{
+    max-width:1180px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px; gap:16px; flex-wrap:wrap;
+  }
+  .brand{display:flex; align-items:center; gap:10px;}
+  .brand-mark{
+    width:34px;height:34px;border-radius:8px;
+    background:linear-gradient(135deg,var(--orange),var(--orange-light));
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;color:var(--navy-deep);font-size:15px;flex-shrink:0;
+  }
+  .brand-text{font-weight:700;font-size:15px;letter-spacing:-0.01em;}
+  .brand-text span{display:block;font-size:11px;font-weight:500;color:var(--text-low);}
+
+  .search-wrap{position:relative; width:min(320px,42vw);}
+  .search-wrap input{
+    width:100%; font-family:inherit; font-size:13.5px;
+    background:var(--navy); border:1px solid var(--line-strong);
+    color:var(--text-hi); padding:9px 14px 9px 34px; border-radius:999px;
+  }
+  .search-wrap input::placeholder{color:var(--text-low);}
+  .search-wrap svg{position:absolute; left:12px; top:50%; transform:translateY(-50%); opacity:.5;}
+
+  .hero{max-width:1180px; margin:0 auto; padding:64px 24px 32px;}
+  .hero-eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:12px; font-weight:600; letter-spacing:0.06em;
+    color:var(--orange-light); text-transform:uppercase; margin-bottom:20px;
+  }
+  .rec-dot{
+    width:7px;height:7px;border-radius:50%;background:var(--orange);
+    animation:pulse 1.8s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(255,122,46,.55);}
+    70%{box-shadow:0 0 0 8px rgba(255,122,46,0);}
+    100%{box-shadow:0 0 0 0 rgba(255,122,46,0);}
+  }
+  .hero h1{
+    font-size:clamp(30px,5vw,52px); font-weight:800;
+    letter-spacing:-0.02em; line-height:1.16; max-width:820px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(90deg,var(--orange-light),var(--orange));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero p{margin-top:18px; font-size:15.5px; color:var(--text-mid); max-width:600px;}
+
+  .stat-row{display:flex; gap:36px; margin-top:34px; flex-wrap:wrap;}
+  .stat b{
+    display:block; font-size:30px; font-weight:800; font-family:'JetBrains Mono',monospace;
+    color:var(--orange-light);
+  }
+  .stat span{font-size:12px; color:var(--text-low);}
+
+  .timeline{
+    margin-top:34px; border:1px solid var(--line); border-radius:var(--radius);
+    background:linear-gradient(180deg,var(--navy-mid),var(--navy));
+    padding:16px 20px 0; overflow:hidden;
+  }
+  .timeline-top{display:flex; justify-content:space-between; font-size:12px; color:var(--text-low); margin-bottom:12px;}
+  .timecode{color:var(--orange-light); font-weight:600; font-size:13px;}
+  .track{position:relative; height:12px; border-radius:8px;
+    background:repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 40px);
+    background-color:rgba(255,255,255,0.03); margin-bottom:14px; overflow:hidden;}
+  .track-fill{position:absolute; inset:0; width:100%;
+    background:linear-gradient(90deg, rgba(255,122,46,0.35), rgba(255,122,46,0.12)); border-right:2px solid var(--orange);}
+
+  /* jump nav */
+  .jumpnav{
+    display:flex; gap:8px; overflow-x:auto; padding:16px 24px 0;
+    max-width:1180px; margin:0 auto;
+  }
+  .jumpnav::-webkit-scrollbar{height:5px;}
+  .jumpnav a{
+    flex:0 0 auto; font-size:12px; font-weight:600; white-space:nowrap;
+    color:var(--text-mid); border:1px solid var(--line-strong);
+    padding:6px 12px; border-radius:999px; text-decoration:none;
+  }
+  .jumpnav a:hover{border-color:var(--orange); color:var(--text-hi);}
+
+  .section{max-width:1180px; margin:0 auto; padding:44px 24px 20px;}
+  .group{margin-bottom:34px; scroll-margin-top:80px;}
+  .group-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:12px; margin-bottom:16px; flex-wrap:wrap;
+    border-bottom:1px solid var(--line); padding-bottom:12px;
+  }
+  .group-head h2{font-size:17px; font-weight:700; letter-spacing:-0.01em;}
+  .group-head .period{font-size:12px; color:var(--text-low); margin-left:8px; font-weight:500;}
+  .group-head .count{font-size:12px; color:var(--text-low); font-family:'JetBrains Mono',monospace;}
+
+  .people-grid{
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:10px;
+  }
+  .person{
+    display:flex; align-items:center; justify-content:space-between; gap:8px;
+    border:1px solid var(--line); border-radius:10px;
+    padding:11px 13px; background:var(--navy);
+    text-decoration:none; transition:border-color .15s ease, transform .15s ease;
+  }
+  .person.linked:hover{border-color:var(--orange); transform:translateY(-1px);}
+  .person.empty{opacity:.55; cursor:default;}
+  .p-name{font-size:13.5px; font-weight:600; color:var(--text-hi); display:flex; align-items:center; gap:6px; flex-wrap:wrap;}
+  .badge{
+    font-size:9.5px; font-weight:700; padding:2px 6px; border-radius:5px;
+    background:rgba(255,122,46,0.14); color:var(--orange-light); letter-spacing:0.02em;
+  }
+  .badge.muted{background:rgba(255,255,255,0.07); color:var(--text-low);}
+  .p-arrow{font-size:14px; color:var(--text-low); flex-shrink:0;}
+  .person.linked:hover .p-arrow{color:var(--orange);}
+  .p-note{font-size:11px; color:var(--text-low);}
+
+  .no-results{
+    text-align:center; padding:60px 20px; color:var(--text-low); font-size:14px; display:none;
+  }
+
+  .sprocket{
+    height:14px; background-color:var(--navy-mid);
+    background-image: radial-gradient(circle at 12px 7px, var(--navy-deep) 3.5px, transparent 4px);
+    background-size: 24px 14px; background-repeat: repeat-x; background-position: 12px center;
+  }
+  footer{margin-top:20px; border-top:1px solid var(--line); background:linear-gradient(180deg, var(--navy), var(--navy-deep));}
+  .footer-wrap{max-width:1180px; margin:0 auto; padding:56px 24px 40px; display:flex; justify-content:space-between; gap:40px; flex-wrap:wrap;}
+  .footer-cta h3{font-size:22px; font-weight:800; letter-spacing:-0.01em; margin-bottom:10px;}
+  .footer-cta p{color:var(--text-mid); font-size:14px; max-width:380px;}
+  .footer-contact{font-size:13.5px; color:var(--text-mid); display:flex; flex-direction:column; gap:6px;}
+  .footer-contact b{color:var(--text-hi);}
+  .footer-bottom{max-width:1180px; margin:0 auto; padding:0 24px 26px; font-size:11.5px; color:var(--text-low);}
+
+  @media (max-width:640px){
+    .footer-wrap{flex-direction:column;}
+    .search-wrap{width:100%;}
+    .nav-wrap{flex-direction:column; align-items:stretch;}
+  }
+  @media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <div class="brand">
+      <div class="brand-mark">C</div>
+      <div class="brand-text">센텀직업전문학교
+        <span>수료생 포트폴리오 아카이브</span>
+      </div>
+    </div>
+    <div class="search-wrap">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="text" id="search" placeholder="이름으로 검색 (예: 김민지)" autocomplete="off">
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-eyebrow"><span class="rec-dot"></span> PORTFOLIO ARCHIVE</div>
+  <h1>말이 아니라<br><em>결과물로 증명합니다</em></h1>
+  <p>센텀직업전문학교를 거쳐간 수료생들이 직접 만든 포트폴리오 사이트 모음입니다. 기수·과정별로 정리했으며, 이름을 검색하거나 카드를 눌러 실제 결과물을 바로 확인할 수 있습니다.</p>
+
+  <div class="stat-row">
+    <div class="stat"><b id="statTotal">0</b><span>전체 수료생</span></div>
+    <div class="stat"><b id="statLinked">0</b><span>바로가기 링크 보유</span></div>
+    <div class="stat"><b id="statGroups">0</b><span>기수 / 과정</span></div>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-top">
+      <span>PORTFOLIO_ARCHIVE.prproj</span>
+      <span class="timecode mono" id="tc">00:00:00:00</span>
+    </div>
+    <div class="track"><div class="track-fill"></div></div>
+  </div>
+</section>
+
+<nav class="jumpnav" id="jumpnav" aria-label="기수/과정 바로가기"></nav>
+
+<section class="section">
+  <div id="groups"></div>
+  <div class="no-results" id="noResults">검색 결과가 없습니다.</div>
+</section>
+
+<footer>
+  <div class="sprocket"></div>
+  <div class="footer-wrap">
+    <div class="footer-cta">
+      <h3>더 자세한 커리큘럼이 궁금하다면</h3>
+      <p>상담을 통해 과정별 커리큘럼과 더 많은 수료생 포트폴리오를 확인하실 수 있습니다.</p>
+    </div>
+    <div class="footer-contact">
+      <div><b>센텀직업전문학교</b></div>
+      <div>부산 해운대구 센텀시티</div>
+      <div>051-781-5052</div>
+      <div>www.centum.or.kr</div>
+      <div>Instagram @busan_centum</div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 센텀직업전문학교. 상담 열람용 자료입니다. 각 링크는 수료생 본인이 제작·게시한 외부 사이트로 연결됩니다.</div>
+</footer>
+
+<script>
+  // ---- timecode ticker ----
+  (function(){
+    var el = document.getElementById('tc');
+    var f = 0, reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduced) return;
+    setInterval(function(){
+      f++;
+      var frames = f % 30, totalSec = Math.floor(f/30);
+      var s = totalSec % 60, m = Math.floor(totalSec/60) % 60, h = Math.floor(totalSec/3600);
+      function pad(n){return n.toString().padStart(2,'0');}
+      el.textContent = pad(h)+':'+pad(m)+':'+pad(s)+':'+pad(frames);
+    }, 1000/30);
+  })();
+
+  // person: [name, url(or null), tag(or null)]
+  var GROUPS = [
+    {title:'1차', period:'', people:[
+      ['기주','https://k29694540.github.io/KIJU/'],
+      ['해리','https://hwanghaeri.github.io/haeri/'],
+      ['영숙','https://pinkmoons.github.io/123/'],
+      ['이민진','https://minjinerica.github.io/ericalee/']
+    ]},
+    {title:'2차', period:'', people:[
+      ['박경희','https://kheepark007.github.io/portfolio/'],
+      ['박서아','https://seoastyle.github.io/seoastyle/'],
+      ['전영임','https://hh5029.github.io/jyi/'],
+      ['한혜진','https://haejin1113.github.io/haejin/']
+    ]},
+    {title:'3차', period:'', people:[
+      ['박혜련','https://rani222.github.io/rani/'],
+      ['손수희','https://gmldi.github.io/gmldi/'],
+      ['구경아','https://gugyeogna27.github.io/gugyeogna/'],
+      ['유예나','https://centum1201.github.io/0119']
+    ]},
+    {title:'4차', period:'', people:[
+      ['박소연','https://sspsoyo.github.io/sspsoyo/'],
+      ['양경호','https://kyunghoyang.github.io/portfolio/'],
+      ['류가영','https://rgy8111.github.io/gayoung/'],
+      ['권재현','https://jaihyeon.github.io/jaehyeon25/']
+    ]},
+    {title:'5차', period:'', people:[
+      ['재민','https://iamminz.github.io/minz/'],
+      ['예지','https://centum1201.github.io/0119/'],
+      ['혜란','https://rani222.github.io/rani/'],
+      ['송희정','https://present23.github.io/huij2/'],
+      ['김민지','https://mnjiikim.github.io/minji/'],
+      ['이원석','https://zxcvwonseok.github.io/wonseok/'],
+      ['이상아','https://sa1108.github.io/SA/']
+    ]},
+    {title:'6회차 피그마반', period:'', people:[
+      ['강남이','https://knl-nami.github.io/nami82/'],
+      ['조여름','https://dufmal.github.io/yeoreum/'],
+      ['제다혜','https://dahae951.github.io/dahae/'],
+      ['이준','https://ejundesign.netlify.app/#firstPage']
+    ]},
+    {title:'7회차 헬스케어 웹콘텐츠 구축 전문가', period:'', people:[
+      ['이정민','https://minminmin759759.github.io/JeongMin_/'],
+      ['이해인','https://haein0525.github.io/haein_history/'],
+      ['이진경','https://kyung-2.github.io/LJK_Portfolio/'],
+      ['차섬강','https://chaseomgang.github.io/cha_design/']
+    ]},
+    {title:'8회차 광고영상콘텐츠 A (멀티A반)', period:'', people:[
+      ['이가연','https://mongneeda-gif.github.io/goo-portfolio/index.html'],
+      ['김기량','https://7izko3.github.io/7izko/'],
+      ['김정현','https://diatom74.github.io/Diatom-s/about.html'],
+      ['이승언','https://letronome1996-hue.github.io/videoportfolio/']
+    ]},
+    {title:'9회차 스마트헬스', period:'', people:[
+      ['최지연','https://chlwldus8448-bit.github.io/Ji_Yeon/'],
+      ['이정희','https://ajiajia9633-art.github.io/JH_Portfolio_A/'],
+      ['김민정','https://malla0704-glitch.github.io/ming__/Chanel-video.html'],
+      ['임동현','https://ehdgus6574-eng.github.io/Donghyun991011/'],
+      ['김보혜','https://a92297011-netizen.github.io/HyeDam-Design/index.html'],
+      ['김현정','https://rebirth230406-wq.github.io/hjkim0406/'],
+      ['김채현','https://gimchaehyeon9-collab.github.io/CH-Portfolio/']
+    ]},
+    {title:'10회차 멀티광고콘텐츠B', period:'', people:[
+      ['김수경','https://brave-works-418414.framer.app/?hl=ko-KR'],
+      ['채예성','https://brave-works-418414.framer.app/?hl=ko-KR'],
+      ['차효경','https://chahyo91.github.io/chad/index.html#loaded']
+    ]},
+    {title:'11회차 멀티광고콘텐츠C', period:'', people:[
+      ['이정희','https://r-g-lee.github.io/jungheelee/'],
+      ['강민경','https://minkk01717-code.github.io/minkyung/'],
+      ['석성우','https://wys3482-creator.github.io/sungwoo/'],
+      ['김미조','https://mijogim211-dot.github.io/mijo_portfolio/']
+    ]},
+    {title:'12회차 문화관광', period:'', people:[
+      ['차은정','https://jeffreymom.github.io/ej-portfolio/index.html'],
+      ['김민규','https://mingyu-kim20.github.io/MG_studio/'],
+      ['김서우','https://seowookim-cecilia.github.io/seowookim-web-260731/']
+    ]},
+    {title:'13회차 광고콘텐츠A', period:'', people:[
+      ['배주연','https://03yeonn.github.io/JUYEONB/'],
+      ['유광민','https://kangmin350-hub.github.io/lookatmeeen_portfolio/'],
+      ['천지윤','https://chunji1004.github.io/ChunJiYun/'],
+      ['양윤정','https://game159676-afk.github.io/yunjeong/']
+    ]}
+  ];
+
+  function slug(s){ return s.replace(/[^a-zA-Z0-9가-힣]/g,'').toLowerCase(); }
+
+  var groupsEl = document.getElementById('groups');
+  var jumpEl = document.getElementById('jumpnav');
+  var noResults = document.getElementById('noResults');
+
+  var totalPeople = 0, totalLinked = 0;
+
+  GROUPS.forEach(function(g, gi){
+    g.id = 'g-' + gi + '-' + slug(g.title);
+    totalPeople += g.people.length;
+    g.people.forEach(function(p){ if(p[1]) totalLinked++; });
+  });
+
+  document.getElementById('statTotal').textContent = totalPeople + '명';
+  document.getElementById('statLinked').textContent = totalLinked + '개';
+  document.getElementById('statGroups').textContent = GROUPS.length + '개';
+
+  jumpEl.innerHTML = GROUPS.map(function(g){
+    return '<a href="#'+g.id+'">'+g.title+'</a>';
+  }).join('');
+
+  function personRow(p){
+    var name = p[0], url = p[1], tag = p[2], note = p[3];
+    var badge = tag ? '<span class="badge">'+tag+'</span>' : '';
+    if(url){
+      return '<a class="person linked" href="'+url+'" target="_blank" rel="noopener" data-name="'+name.toLowerCase()+'">'+
+        '<span class="p-name">'+name+badge+'</span><span class="p-arrow">↗</span></a>';
+    }
+    return '<div class="person empty" data-name="'+name.toLowerCase()+'">'+
+      '<span class="p-name">'+name+badge+'</span>'+
+      (note ? '<span class="p-note">'+note+'</span>' : '<span class="p-note">링크 없음</span>')+
+      '</div>';
+  }
+
+  groupsEl.innerHTML = GROUPS.map(function(g){
+    return '<div class="group" id="'+g.id+'">'+
+      '<div class="group-head"><h2>'+g.title+(g.period?'<span class="period">'+g.period+'</span>':'')+'</h2>'+
+      '<span class="count mono">'+g.people.length+'명</span></div>'+
+      '<div class="people-grid">'+g.people.map(personRow).join('')+'</div>'+
+    '</div>';
+  }).join('');
+
+  // search
+  var searchInput = document.getElementById('search');
+  searchInput.addEventListener('input', function(){
+    var q = this.value.trim().toLowerCase();
+    var anyVisible = false;
+    document.querySelectorAll('.group').forEach(function(groupEl){
+      var people = groupEl.querySelectorAll('.person');
+      var groupHasMatch = false;
+      people.forEach(function(p){
+        var match = !q || p.dataset.name.indexOf(q) !== -1;
+        p.style.display = match ? '' : 'none';
+        if(match) groupHasMatch = true;
+      });
+      groupEl.style.display = groupHasMatch ? '' : 'none';
+      if(groupHasMatch) anyVisible = true;
+    });
+    noResults.style.display = anyVisible ? 'none' : 'block';
+    jumpEl.style.display = q ? 'none' : 'flex';
+  });
+</script>
+
+</body>
+</html>
